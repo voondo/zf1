@@ -107,8 +107,10 @@ class Zend_Tool_Project_Context_Zf_BootstrapFile extends Zend_Tool_Project_Conte
                 $applicationOptions = array();
                 $applicationOptions['config'] = $this->_applicationConfigFile->getPath();
 
+                $env = getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'development';
+
                 $this->_applicationInstance = new Zend_Application(
-                    'development',
+                    $env,
                     $applicationOptions
                     );
             }
